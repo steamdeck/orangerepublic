@@ -139,6 +139,11 @@
       "name": "West Bengal",
       "pinCodeRange": [700001, 999999],
       "coordinates": { "lat": 22.5726, "lon": 88.3639 }
+    },
+    {
+      "name": "Delhi",
+      "pinCodeRange": [110001, 110999],
+      "coordinates": { "lat": 28.6139, "lon": 77.2090 }
     }
   ]
 }
