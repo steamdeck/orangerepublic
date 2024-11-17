@@ -144,6 +144,17 @@
       "name": "Delhi",
       "pinCodeRange": [110001, 110999],
       "coordinates": { "lat": 28.6139, "lon": 77.2090 }
-    }
+    },
+    {
+  "name": "Ladakh",
+  "pinCodeRange": [194001, 199999],
+  "coordinates": { "lat": 34.1526, "lon": 77.5773 }
+},
+    {
+  "name": "Jammu & Kashmir",
+  "pinCodeRange": [180001, 199999],
+  "coordinates": { "lat": 33.7782, "lon": 76.5762 }
+}
+
   ]
 }
