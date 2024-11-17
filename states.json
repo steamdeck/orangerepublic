@@ -1,30 +1,144 @@
 {
-  "Andhra Pradesh": { "lat": 16.5060, "lon": 80.6480 },
-  "Arunachal Pradesh": { "lat": 27.0190, "lon": 93.5350 },
-  "Assam": { "lat": 26.1445, "lon": 91.7362 },
-  "Bihar": { "lat": 25.5941, "lon": 85.1376 },
-  "Chhattisgarh": { "lat": 21.2514, "lon": 81.6296 },
-  "Goa": { "lat": 15.2993, "lon": 74.1240 },
-  "Gujarat": { "lat": 23.0225, "lon": 72.5714 },
-  "Haryana": { "lat": 30.7333, "lon": 76.7794 },
-  "Himachal Pradesh": { "lat": 31.1048, "lon": 77.1700 },
-  "Jharkhand": { "lat": 23.3441, "lon": 85.3096 },
-  "Karnataka": { "lat": 12.9716, "lon": 77.5946 },
-  "Kerala": { "lat": 8.5241, "lon": 76.9366 },
-  "Madhya Pradesh": { "lat": 23.2599, "lon": 77.4126 },
-  "Maharashtra": { "lat": 19.0760, "lon": 72.8777 },
-  "Manipur": { "lat": 24.8176, "lon": 93.9368 },
-  "Meghalaya": { "lat": 25.5788, "lon": 91.8830 },
-  "Mizoram": { "lat": 23.1645, "lon": 92.9376 },
-  "Nagaland": { "lat": 25.6740, "lon": 94.1133 },
-  "Odisha": { "lat": 20.2961, "lon": 85.8189 },
-  "Punjab": { "lat": 30.7333, "lon": 76.7794 },
-  "Rajasthan": { "lat": 26.9124, "lon": 75.7873 },
-  "Sikkim": { "lat": 27.3314, "lon": 88.6126 },
-  "Tamil Nadu": { "lat": 13.0827, "lon": 80.2707 },
-  "Telangana": { "lat": 17.3850, "lon": 78.4867 },
-  "Tripura": { "lat": 23.8315, "lon": 91.2868 },
-  "Uttar Pradesh": { "lat": 26.8467, "lon": 80.9462 },
-  "Uttarakhand": { "lat": 30.3165, "lon": 78.0322 },
-  "West Bengal": { "lat": 22.5726, "lon": 88.3639 }
+  "states": [
+    {
+      "name": "Andhra Pradesh",
+      "pinCodeRange": [500001, 999999],
+      "coordinates": { "lat": 16.5060, "lon": 80.6480 }
+    },
+    {
+      "name": "Arunachal Pradesh",
+      "pinCodeRange": [790001, 799999],
+      "coordinates": { "lat": 27.0190, "lon": 93.5350 }
+    },
+    {
+      "name": "Assam",
+      "pinCodeRange": [700001, 799999],
+      "coordinates": { "lat": 26.1445, "lon": 91.7362 }
+    },
+    {
+      "name": "Bihar",
+      "pinCodeRange": [800001, 899999],
+      "coordinates": { "lat": 25.5941, "lon": 85.1376 }
+    },
+    {
+      "name": "Chhattisgarh",
+      "pinCodeRange": [490001, 499999],
+      "coordinates": { "lat": 21.2514, "lon": 81.6296 }
+    },
+    {
+      "name": "Goa",
+      "pinCodeRange": [403001, 409999],
+      "coordinates": { "lat": 15.2993, "lon": 74.1240 }
+    },
+    {
+      "name": "Gujarat",
+      "pinCodeRange": [360001, 999999],
+      "coordinates": { "lat": 23.0225, "lon": 72.5714 }
+    },
+    {
+      "name": "Haryana",
+      "pinCodeRange": [121001, 129999],
+      "coordinates": { "lat": 30.7333, "lon": 76.7794 }
+    },
+    {
+      "name": "Himachal Pradesh",
+      "pinCodeRange": [171001, 179999],
+      "coordinates": { "lat": 31.1048, "lon": 77.1700 }
+    },
+    {
+      "name": "Jharkhand",
+      "pinCodeRange": [800001, 899999],
+      "coordinates": { "lat": 23.3441, "lon": 85.3096 }
+    },
+    {
+      "name": "Karnataka",
+      "pinCodeRange": [560001, 999999],
+      "coordinates": { "lat": 12.9716, "lon": 77.5946 }
+    },
+    {
+      "name": "Kerala",
+      "pinCodeRange": [680001, 999999],
+      "coordinates": { "lat": 8.5241, "lon": 76.9366 }
+    },
+    {
+      "name": "Madhya Pradesh",
+      "pinCodeRange": [400001, 499999],
+      "coordinates": { "lat": 23.2599, "lon": 77.4126 }
+    },
+    {
+      "name": "Maharashtra",
+      "pinCodeRange": [400001, 999999],
+      "coordinates": { "lat": 19.0760, "lon": 72.8777 }
+    },
+    {
+      "name": "Manipur",
+      "pinCodeRange": [795001, 799999],
+      "coordinates": { "lat": 24.8176, "lon": 93.9368 }
+    },
+    {
+      "name": "Meghalaya",
+      "pinCodeRange": [793001, 799999],
+      "coordinates": { "lat": 25.5788, "lon": 91.8830 }
+    },
+    {
+      "name": "Mizoram",
+      "pinCodeRange": [796001, 799999],
+      "coordinates": { "lat": 23.1645, "lon": 92.9376 }
+    },
+    {
+      "name": "Nagaland",
+      "pinCodeRange": [797001, 799999],
+      "coordinates": { "lat": 25.6740, "lon": 94.1133 }
+    },
+    {
+      "name": "Odisha",
+      "pinCodeRange": [750001, 799999],
+      "coordinates": { "lat": 20.2961, "lon": 85.8189 }
+    },
+    {
+      "name": "Punjab",
+      "pinCodeRange": [140001, 149999],
+      "coordinates": { "lat": 30.7333, "lon": 76.7794 }
+    },
+    {
+      "name": "Rajasthan",
+      "pinCodeRange": [302001, 399999],
+      "coordinates": { "lat": 26.9124, "lon": 75.7873 }
+    },
+    {
+      "name": "Sikkim",
+      "pinCodeRange": [737001, 739999],
+      "coordinates": { "lat": 27.3314, "lon": 88.6126 }
+    },
+    {
+      "name": "Tamil Nadu",
+      "pinCodeRange": [600001, 999999],
+      "coordinates": { "lat": 13.0827, "lon": 80.2707 }
+    },
+    {
+      "name": "Telangana",
+      "pinCodeRange": [500001, 599999],
+      "coordinates": { "lat": 17.3850, "lon": 78.4867 }
+    },
+    {
+      "name": "Tripura",
+      "pinCodeRange": [799001, 799999],
+      "coordinates": { "lat": 23.8315, "lon": 91.2868 }
+    },
+    {
+      "name": "Uttar Pradesh",
+      "pinCodeRange": [200001, 299999],
+      "coordinates": { "lat": 26.8467, "lon": 80.9462 }
+    },
+    {
+      "name": "Uttarakhand",
+      "pinCodeRange": [246001, 249999],
+      "coordinates": { "lat": 30.3165, "lon": 78.0322 }
+    },
+    {
+      "name": "West Bengal",
+      "pinCodeRange": [700001, 999999],
+      "coordinates": { "lat": 22.5726, "lon": 88.3639 }
+    }
+  ]
 }
