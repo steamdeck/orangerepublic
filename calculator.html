@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pincode-based Movers and Packers Cost</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, select, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 200px;
+        }
+        .output {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+<input type="number" id="fromPincode" placeholder="Enter From Pincode" />
+
+<input type="number" id="toPincode" placeholder="Enter To Pincode" />
+
+<p>Select House Size:</p>
+<select id="houseSize">
+    <option value="1BHK">1 BHK</option>
+    <option value="2BHK">2 BHK</option>
+    <option value="3BHK">3 BHK</option>
+    <option value="4BHK">4 BHK</option>
+    <option value="5BHK">5 BHK</option>
+</select>
+
+<p>Select Service Type:</p>
+<select id="serviceType">
+    <option value="packingOnly">Packing Only</option>
+    <option value="movingOnly">Moving Only</option>
+    <option value="fullService">Full Service</option>
+</select>
+
+<button onclick="calculateCost()">Calculate</button>
+
+<div class="output" id="result"></div>
+
+<script>
+// Use CORS proxy for development (optional)
+const statesDataUrl = "https://api.allorigins.win/raw?url=https://github.com/steamdeck/orangerepublic/raw/refs/heads/main/states.json"; // CORS workaround
+
+let statesData = [];
+
+function fetchStatesData() {
+    fetch(statesDataUrl)
+        .then(response => response.json())
+        .then(data => {
+            statesData = data.states;
+        })
+        .catch(error => {
+            console.error("Failed to load state data:", error);
+            document.getElementById("result").innerHTML = "<p class='error'>Failed to load state data. Please try again later.</p>";
+        });
+}
+
+// Function to calculate the approximate cost based on the pincodes, house size, and service type
+function calculateCost() {
+    const fromPincodeInput = document.getElementById("fromPincode").value;
+    const toPincodeInput = document.getElementById("toPincode").value;
+    const houseSize = document.getElementById("houseSize").value;
+    const serviceType = document.getElementById("serviceType").value;
+
+    const fromPincode = parseInt(fromPincodeInput);
+    const toPincode = parseInt(toPincodeInput);
+
+    if (!fromPincode || fromPincode < 100000 || fromPincode > 999999 || !toPincode || toPincode < 100000 || toPincode > 999999) {
+        document.getElementById("result").innerHTML = "<p class='error'>Please enter valid 6-digit pincodes for both locations.</p>";
+        return;
+    }
+
+    // Find the states for "From" and "To" pincodes
+    let fromStateInfo = findStateByPincode(fromPincode);
+    let toStateInfo = findStateByPincode(toPincode);
+
+    if (!fromStateInfo || !toStateInfo) {
+        document.getElementById("result").innerHTML = "<p class='error'>One or both pincodes not found in the database.</p>";
+        return;
+    }
+
+    // Calculate the distance (difference between the pincodes)
+    const roughDistance = Math.abs(fromPincode - toPincode) / 1000; // Approximate distance in km (dividing by 1000 to get km)
+    
+    // Base Charges
+    const baseCharge = 5000; // Fixed base charge
+    
+    // Cost per kilometer
+    const costPerKm = 10; // ₹10 per km
+    
+    // House Size Cost Multiplier (example estimation)
+    let houseSizeMultiplier = 0;
+    switch (houseSize) {
+        case "1BHK":
+            houseSizeMultiplier = 1;
+            break;
+        case "2BHK":
+            houseSizeMultiplier = 1.5;
+            break;
+        case "3BHK":
+            houseSizeMultiplier = 2;
+            break;
+        case "4BHK":
+            houseSizeMultiplier = 2.5;
+            break;
+        case "5BHK":
+            houseSizeMultiplier = 3;
+            break;
+        default:
+            houseSizeMultiplier = 1;
+    }
+    
+    // Service Type Cost Adjustment
+    let serviceMultiplier = 1; // Default is for "Full Service"
+    if (serviceType === "packingOnly") {
+        serviceMultiplier = 1.2; // Packing only will be slightly cheaper
+    } else if (serviceType === "movingOnly") {
+        serviceMultiplier = 1.5; // Moving only will be a bit more expensive
+    }
+
+    // Calculate the cost
+    const estimatedCost = Math.floor(
+        (roughDistance * costPerKm * houseSizeMultiplier * serviceMultiplier) + baseCharge
+    );
+
+    document.getElementById("result").innerHTML = `<p>Estimated Cost for Movers and Packers: ₹${estimatedCost.toLocaleString()}</p>`;
+}
+
+// Function to find the state based on the pincode
+function findStateByPincode(pincode) {
+    for (let i = 0; i < statesData.length; i++) {
+        const state = statesData[i];
+        if (pincode >= state.pinCodeRange[0] && pincode <= state.pinCodeRange[1]) {
+            return state;
+        }
+    }
+    return null;
+}
+
+// Fetch the states data on page load
+fetchStatesData();
+</script>
+
+</body>
+</html>
